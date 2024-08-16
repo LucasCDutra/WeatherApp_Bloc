@@ -3,9 +3,9 @@ import 'dart:ui';
 import 'package:bloc_weatherapp/widgets/additional_info_item.dart';
 import 'package:bloc_weatherapp/widgets/hourly_forecast_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
-import 'package:bloc_weatherapp/config/secrets.dart';
 
 class WeatherScreen extends StatefulWidget {
   const WeatherScreen({super.key});
@@ -22,7 +22,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
       String cityName = 'London';
       final res = await http.get(
         Uri.parse(
-          'https://api.openweathermap.org/data/2.5/forecast?q=$cityName&APPID=$openWeatherAPIKey',
+          'https://api.openweathermap.org/data/2.5/forecast?q=$cityName&APPID=${dotenv.get("WEATHER_KEY")}',
         ),
       );
 
