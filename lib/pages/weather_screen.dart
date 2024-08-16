@@ -19,10 +19,10 @@ class _WeatherScreenState extends State<WeatherScreen> {
 
   Future<Map<String, dynamic>> getCurrentWeather() async {
     try {
-      String cityName = 'London';
+      String cityName = 'São Paulo';
       final res = await http.get(
         Uri.parse(
-          'https://api.openweathermap.org/data/2.5/forecast?q=$cityName&APPID=${dotenv.get("WEATHER_KEY")}',
+          'https://api.openweathermap.org/data/2.5/forecast?q=$cityName&APPID=${dotenv.get("WEATHER_KEY")}&units=metric',
         ),
       );
 
@@ -116,7 +116,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                           child: Column(
                             children: [
                               Text(
-                                '$currentTemp K',
+                                '$currentTemp°C',
                                 style: const TextStyle(
                                   fontSize: 32,
                                   fontWeight: FontWeight.bold,
