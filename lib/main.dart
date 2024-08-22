@@ -1,6 +1,7 @@
-import 'package:bloc_weatherapp/bloc/weather_bloc.dart';
-import 'package:bloc_weatherapp/data/provider/weather_provider.dart';
-import 'package:bloc_weatherapp/data/repository/weather_repository.dart';
+import 'package:bloc_weatherapp/application/controller/bloc/weather/weather_bloc.dart';
+import 'package:bloc_weatherapp/application/gateway/weather.gateway.dart';
+import 'package:bloc_weatherapp/domain/service/weather.service.dart';
+import 'package:bloc_weatherapp/infrastructure/openweather/service/weather.service.external.dart';
 import 'package:bloc_weatherapp/pages/weather_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,9 +18,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RepositoryProvider(
-      create: (context) => WeatherRepository(WeatherDataProvider()),
+      create: (context) => WeatherService(WeatherGateway(WeatherDataProvider())),
       child: BlocProvider(
-        create: (context) => WeatherBloc(context.read<WeatherRepository>()),
+        create: (context) => WeatherBloc(context.read<WeatherService>()),
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData.dark(useMaterial3: true),

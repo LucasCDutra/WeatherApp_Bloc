@@ -1,15 +1,14 @@
 import 'dart:convert';
 
-import 'package:bloc_weatherapp/data/provider/weather_provider.dart';
-import 'package:bloc_weatherapp/models/weather_model.dart';
+import 'package:bloc_weatherapp/domain/models/weather_model.dart';
+import 'package:bloc_weatherapp/infrastructure/openweather/service/weather.service.external.dart';
 
-class WeatherRepository {
+class WeatherGateway {
   final WeatherDataProvider weatherDataProvider;
-  WeatherRepository(this.weatherDataProvider);
+  WeatherGateway(this.weatherDataProvider);
 
-  Future<WeatherModel> getCurrentWeather() async {
+  Future<WeatherModel> getCurrentWeather(cityName) async {
     try {
-      const cityName = 'São Paulo';
       final weatherData = await weatherDataProvider.getCurrentWeather(cityName);
       final data = jsonDecode(weatherData);
 

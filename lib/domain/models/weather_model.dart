@@ -80,18 +80,3 @@ class WeatherModel {
         currentHumidity.hashCode;
   }
 }
-
-
-
-  //  final data = snapshot.data!;
-
-  //       final currentWeatherData = data['list'][0];
-
-  //       final currentTemp = currentWeatherData['main']['temp'];
-  //       final currentSky = currentWeatherData['weather'][0]['main'];
-  //       final currentPressure = currentWeatherData['main']['pressure'];
-  //       final currentWindSpeed = currentWeatherData['wind']['speed'];
-  //       final currentHumidity = currentWeatherData['main']['humidity'];
-
-
-

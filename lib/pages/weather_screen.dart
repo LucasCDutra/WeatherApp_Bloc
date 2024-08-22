@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:ui';
-import 'package:bloc_weatherapp/bloc/weather_bloc.dart';
+import 'package:bloc_weatherapp/application/controller/bloc/weather/weather_bloc.dart';
 import 'package:bloc_weatherapp/widgets/additional_info_item.dart';
 import 'package:bloc_weatherapp/widgets/hourly_forecast_item.dart';
 import 'package:flutter/material.dart';
